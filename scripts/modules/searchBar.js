@@ -4,14 +4,18 @@ import { fetchBroadIMDB } from "./api.js";
 
 const inputRef = document.querySelector("#searchInput");
 const popupRef = document.querySelector("#searchPopup");
+const btnRef = document.querySelector("#searchBtn");
 
 export async function renderSearchRec(userInput) {
 	clearHTML();
 	let movies = await fetchBroadIMDB(userInput);
-	movies = movies.Search;
 	log(movies);
-	createSearchPopupHTML(movies);
-	popupRef.classList.remove("d-none");
+	if (movies.Search) {
+		movies = movies.Search;
+		log(movies);
+		createSearchPopupHTML(movies);
+		popupRef.classList.remove("d-none");
+	}
 }
 
 export async function loadSearchBarEventListeners() {
@@ -21,7 +25,7 @@ export async function loadSearchBarEventListeners() {
 		clearTimeout(timeOut);
 
 		timeOut = setTimeout(() => {
-			if (inputRef.value.length >= 2) {
+			if (inputRef.value.trim().length >= 2) {
 				renderSearchRec(inputRef.value);
 			}
 		}, 500);
@@ -31,24 +35,26 @@ export async function loadSearchBarEventListeners() {
 	});
 
 	inputRef.addEventListener("focusout", () => {
-		// setTimeout(() => {
 		popupRef.classList.add("d-none");
-		// }, 500);
 	});
 	inputRef.addEventListener("focusin", () => {
-		// if (inputRef.value.length >= 2) {
 		popupRef.classList.remove("d-none");
-		// }
 	});
 
 	popupRef.addEventListener("mousedown", (event) => {
 		event.preventDefault();
 
 		const click = event.target.closest(".header__search-item");
+		log(click);
 
 		if (click) {
-			log(event.target.dataset.imdbID);
+			log(click.dataset.imdbID);
+			location.href = `/movie.html?imdbid=${click.dataset.imdbID}`;
 		}
+	});
+
+	btnRef.addEventListener("click", (event) => {
+		event.preventDefault();
 	});
 }
 

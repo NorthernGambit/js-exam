@@ -1,29 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie</title>
-    <link rel="stylesheet" href="./styles/style.css" />
-    <script
-      src="https://kit.fontawesome.com/f300007e95.js"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="./scripts/script.js"></script>
-  </head>
-  <body>
-    <header>
-      <header class="header">
-        <div class="content-wrapper header__flex">
-          <a href="index.html"><img class="header__logo" src="./res/logo.png" alt="logotype"/></a>
-        </div>
-      </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Movie</title>
+		<link rel="stylesheet" href="./styles/style.css" />
+		<script
+			src="https://kit.fontawesome.com/f300007e95.js"
+			crossorigin="anonymous"
+		></script>
+		<script type="module" src="./scripts/script.js"></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="content-wrapper header__flex">
+				<a href="index.html"
+					><img
+						class="header__logo"
+						src="./res/logo.png"
+						alt="logotype"
+				/></a>
+				<form class="header__form" id="searchForm">
+					<input
+						class="header__input"
+						id="searchInput"
+						type="text"
+						aria-label="Search"
+						autocomplete="off"
+					/>
+					<button class="header__form-btn" id="searchBtn">
+						Search
+					</button>
+					<ul
+						class="header__search-popup d-none"
+						id="searchPopup"
+					></ul>
+				</form>
+				<a href="./favorites.html" class="header__fav-btn" id="favBtn"
+					>Favorites</a
+				>
+			</div>
+		</header>
 
-    <!-- Movie Detailed Informatin -->
-    <section>
-      <div class="content-wrapper">
-        <section></section>
-      </div>
-    </section>
-  </body>
+		<!-- Movie Detailed Information -->
+		<main class="movie-details">
+			<div class="content-wrapper">
+				<article class="movie-spotlight">
+					<header class="movie-spotlight__top-section">
+						<section class="movie-spotlight__top-info-section">
+							<h1 class="movie-spotlight__title" id="movieTitle">
+								Gladiator
+							</h1>
+							<p
+								class="movie-spotlight__rated-runtime-genre"
+								id="movieRatedRuntimeGenre"
+							>
+								[R] - 155 m - Action, Adventure, drama
+							</p>
+						</section>
+						<section class="movie-spotlight__media-section">
+							<img
+								src="./res/icons/missing-poster.svg"
+								alt=""
+								class="movie-spotlight__poster"
+								id="moviePoster"
+							/>
+							<iframe
+								src="https://www.youtube.com/embed/"
+								class="movie-spotlight__youtube-embed"
+								id="movieTrailer"
+							>
+							</iframe>
+						</section>
+					</header>
+					<main class="movie-spotlight__middle-section">
+						<p class="movie-spotlight__plot" id="moviePlot">
+							Maximus is a powerful Roman general, loved by the
+							people and the aging Emperor, Marcus Aurelius.
+							Before his death, the Emperor chooses Maximus to be
+							his heir over his own son, Commodus, and a power
+							struggle leaves Maximus and his family condemned to
+							death. The powerful general is unable to save his
+							family, and his loss of will allows him to get
+							captured and put into the Gladiator games until he
+							dies. The only desire that fuels him now is the
+							chance to rise to the top so that he will be able to
+							look into the eyes of the man who will feel his
+							revenge.
+						</p>
+					</main>
+					<footer class="movie-spotlight__bottom-section"></footer>
+				</article>
+			</div>
+		</main>
+	</body>
 </html>
