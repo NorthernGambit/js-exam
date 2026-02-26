@@ -7,18 +7,18 @@ const popupRef = document.querySelector("#searchPopup");
 const btnRef = document.querySelector("#searchBtn");
 
 export async function renderSearchRec(userInput) {
+	log("renderSearchRec()");
 	clearHTML();
 	let movies = await fetchBroadIMDB(userInput);
-	log(movies);
 	if (movies.Search) {
 		movies = movies.Search;
-		log(movies);
 		createSearchPopupHTML(movies);
 		popupRef.classList.remove("d-none");
 	}
 }
 
 export async function loadSearchBarEventListeners() {
+	log("loadSearchBarEventListeners()");
 	let timeOut;
 
 	inputRef.addEventListener("input", () => {
@@ -29,7 +29,7 @@ export async function loadSearchBarEventListeners() {
 				renderSearchRec(inputRef.value);
 			}
 		}, 500);
-		if (inputRef.value.length < 2) {
+		if (inputRef.value.trim().length < 2) {
 			clearHTML();
 		}
 	});
@@ -45,19 +45,19 @@ export async function loadSearchBarEventListeners() {
 		event.preventDefault();
 
 		const click = event.target.closest(".header__search-item");
-		log(click);
 
 		if (click) {
-			log(click.dataset.imdbID);
 			location.href = `/movie.html?imdbid=${click.dataset.imdbID}`;
 		}
 	});
 
 	btnRef.addEventListener("click", (event) => {
 		event.preventDefault();
+		location.href = `/search.html?query=${inputRef.value.trim().toLowerCase()}`;
 	});
 }
 
 function clearHTML() {
+	log("clearHTML()");
 	popupRef.innerHTML = "";
 }

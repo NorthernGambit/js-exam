@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Movie</title>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
 		<script
 			src="https://kit.fontawesome.com/f300007e95.js"
 			crossorigin="anonymous"
@@ -13,12 +17,15 @@
 	</head>
 	<body>
 		<header class="header">
-			<div class="content-wrapper header__flex">
+			<div class="content-wrapper header__flex" id="header">
 				<a href="index.html"
 					><img
 						class="header__logo"
 						src="./res/logo.png"
+						alt="logotype" /><img
+						src="./res/Logo-small.png"
 						alt="logotype"
+						class="header__logo-small"
 				/></a>
 				<form class="header__form" id="searchForm">
 					<input
@@ -36,9 +43,18 @@
 						id="searchPopup"
 					></ul>
 				</form>
-				<a href="./favorites.html" class="header__fav-btn" id="favBtn"
-					>Favorites</a
-				>
+				<div class="header__fav-group">
+					<a
+						href="./favorites.html"
+						class="header__fav-btn"
+						id="favBtn"
+						>Favorites</a
+					>
+					<section
+						class="header__fav-popup d-none"
+						id="favPopup"
+					></section>
+				</div>
 			</div>
 		</header>
 
@@ -47,18 +63,46 @@
 			<div class="content-wrapper">
 				<article class="movie-spotlight">
 					<header class="movie-spotlight__top-section">
+						<h1 class="movie-spotlight__title" id="movieTitle"></h1>
 						<section class="movie-spotlight__top-info-section">
-							<h1 class="movie-spotlight__title" id="movieTitle">
-								Gladiator
-							</h1>
-							<p
+							<ul
 								class="movie-spotlight__rated-runtime-genre"
 								id="movieRatedRuntimeGenre"
 							>
-								[R] - 155 m - Action, Adventure, drama
-							</p>
+								<li
+									class="movie-spotlight__item"
+									id="movieRated"
+								></li>
+								<li
+									class="movie-spotlight__item"
+									id="movieRuntime"
+								></li>
+								<li
+									class="movie-spotlight__item"
+									id="movieYear"
+								></li>
+							</ul>
+							<div
+								class="movie-spotlight__fav-group"
+								id="favGroup"
+							>
+								<button
+									class="movie-spotlight__fav-btn"
+									id="favStarBtn"
+								>
+									Add to favorites
+								</button>
+								<i
+									class="material-symbols-outlined"
+									id="favStar"
+									>star</i
+								>
+							</div>
 						</section>
-						<section class="movie-spotlight__media-section">
+						<section
+							class="movie-spotlight__media-section"
+							id="movieMedia"
+						>
 							<img
 								src="./res/icons/missing-poster.svg"
 								alt=""
@@ -74,22 +118,52 @@
 						</section>
 					</header>
 					<main class="movie-spotlight__middle-section">
-						<p class="movie-spotlight__plot" id="moviePlot">
-							Maximus is a powerful Roman general, loved by the
-							people and the aging Emperor, Marcus Aurelius.
-							Before his death, the Emperor chooses Maximus to be
-							his heir over his own son, Commodus, and a power
-							struggle leaves Maximus and his family condemned to
-							death. The powerful general is unable to save his
-							family, and his loss of will allows him to get
-							captured and put into the Gladiator games until he
-							dies. The only desire that fuels him now is the
-							chance to rise to the top so that he will be able to
-							look into the eyes of the man who will feel his
-							revenge.
-						</p>
+						<p class="movie-spotlight__plot" id="moviePlot"></p>
+						<ul
+							class="movie-spotlight__ratings"
+							id="movieRatings"
+						></ul>
 					</main>
-					<footer class="movie-spotlight__bottom-section"></footer>
+					<footer class="movie-spotlight__bottom-section">
+						<ul class="movie-spotlight__credits">
+							<li
+								class="movie-spotlight__credits-item"
+								id="directorsMain"
+							>
+								<h3 class="movie-spotlight__credits-title">
+									Directors
+								</h3>
+								<ul
+									class="movie-spotlight__inner-credits"
+									id="movieCreditsDirectors"
+								></ul>
+							</li>
+							<li
+								class="movie-spotlight__credits-item"
+								id="writersMain"
+							>
+								<h3 class="movie-spotlight__credits-title">
+									Writers
+								</h3>
+								<ul
+									class="movie-spotlight__inner-credits"
+									id="movieCreditsWriters"
+								></ul>
+							</li>
+							<li
+								class="movie-spotlight__credits-item"
+								id="actorsMain"
+							>
+								<h3 class="movie-spotlight__credits-title">
+									Actors
+								</h3>
+								<ul
+									class="movie-spotlight__inner-credits"
+									id="movieCreditsActors"
+								></ul>
+							</li>
+						</ul>
+					</footer>
 				</article>
 			</div>
 		</main>

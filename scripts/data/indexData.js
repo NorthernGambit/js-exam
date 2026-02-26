@@ -2,10 +2,11 @@ import { fetchRecommendedMovies } from "../modules/api.js";
 import { log, randomNumGen } from "../utils/utils.js";
 
 let movieList;
-let movieListisLoaded = false;
 
 export async function loadRecMovies() {
+	log("loadRecMovies()");
 	movieList = await fetchRecommendedMovies();
+	log("test");
 	log(movieList);
 }
 
@@ -14,6 +15,7 @@ export function getMovieList() {
 }
 
 export function getRandomMovies(num) {
+	log("getRandomMovies()");
 	let randomMovies = [];
 	let isDone = false;
 
