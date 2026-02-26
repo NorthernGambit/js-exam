@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Movie Database</title>
+		<link rel="stylesheet" href="./styles/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js"
+			defer
+		></script>
+		<script
+			src="https://kit.fontawesome.com/f300007e95.js"
+			crossorigin="anonymous"
+			defer
+		></script>
+		<script type="module" src="./scripts/script.js" defer></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="content-wrapper header__flex" id="header">
+				<a href="index.html"
+					><img
+						class="header__logo"
+						src="./res/logo.png"
+						alt="logotype"
+					/>
+					<img
+						src="./res/Logo-small.png"
+						alt="logotype"
+						class="header__logo-small"
+					/>
+				</a>
+				<form class="header__form" id="searchForm">
+					<input
+						class="header__input"
+						id="searchInput"
+						type="text"
+						aria-label="Search"
+						autocomplete="off"
+					/>
+					<button class="header__form-btn" id="searchBtn">
+						Search
+					</button>
+					<ul
+						class="header__search-popup d-none"
+						id="searchPopup"
+					></ul>
+				</form>
+				<div class="header__fav-group">
+					<a
+						href="./favorites.html"
+						class="header__fav-btn"
+						id="favBtn"
+						>Favorites</a
+					>
+					<section
+						class="header__fav-popup d-none"
+						id="favPopup"
+					></section>
+				</div>
+			</div>
+		</header>
+
+		<!-- Trailer Caroussel -->
+		<section>
+			<div class="content-wrapper">
+				<section class="trailers">
+					<img
+						src="./res/icons/arrow-left.svg"
+						alt="left navigation arrow"
+						class="trailers__arrow trailers__arrow--left"
+						data-direction="left"
+					/>
+					<img
+						src="./res/icons/arrow-right.svg"
+						alt="right navigation arrow"
+						class="trailers__arrow trailers__arrow--right"
+						data-direction="right"
+					/>
+					<section class="trailers__container"></section>
+				</section>
+			</div>
+		</section>
+
+		<!-- Our recommended movies section -->
+		<main class="recommendations">
+			<div class="content-wrapper center" id="recommendationsWrapper">
+				<h2 class="recommendations__title">Our recommendations</h2>
+				<section class="recommendations__grid" id="recommendationsGrid">
+					<!-- <article class="movie-card">
+						<figure class="movie-card__img-container">
+							<img src="" alt="" class="movie-card__img" />
+							<figcaption
+								class="movie-card__fav-icon"
+							></figcaption>
+						</figure>
+						<h3 class="movie-card__title"></h3>
+					</article> -->
+				</section>
+			</div>
+		</main>
+	</body>
+</html>
