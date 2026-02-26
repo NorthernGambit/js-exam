@@ -8,8 +8,11 @@ let currentMovieList;
 
 export function renderIndexRecList(movieList) {
 	log("renderIndexRecList()");
+	if (movieList === "default") {
+		movieList = currentMovieList;
+	}
+
 	document.querySelector("#recommendationsGrid").innerHTML = "";
-	// const movieList = getRandomMovies(20);
 
 	for (let movie of movieList) {
 		const articleRef = document.createElement("article");
@@ -26,10 +29,10 @@ export function renderIndexRecList(movieList) {
 }
 
 export function loadIndexRecEventListener() {
+	log("loadIndexRecEventListener()");
 	gridRef.addEventListener("click", (event) => {
 		if (event.target.closest("#movieCardFav")) {
 			const click = event.target.closest("#movieCardFav");
-			// log(`${click.dataset.imdbID} Fav`);
 
 			updateLocalFav(click.dataset.imdbID, click.dataset.title);
 
@@ -37,9 +40,8 @@ export function loadIndexRecEventListener() {
 		} else {
 			const click = event.target.closest(".movie-card");
 			if (click) {
-				log(click.dataset.imdbID);
 				location.href = `/movie.html?imdbid=${click.dataset.imdbID}`;
-			} else log("Clicked nothing");
+			}
 		}
 	});
 }

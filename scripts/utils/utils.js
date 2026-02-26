@@ -17,11 +17,9 @@ export function getPosterSrc(movie, imgRef) {
 	};
 
 	if (movie.Poster === "N/A") {
-		// imgRef.src = "/res/icons/missing-poster.svg";
 		log(`Fallback triggered using 'N/A' for: ${movie.Title}`);
 		return "/res/icons/missing-poster.svg";
 	} else {
-		// imgRef.src = movie.Poster;
 		return movie.Poster;
 	}
 	//
